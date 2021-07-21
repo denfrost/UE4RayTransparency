@@ -75,6 +75,8 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	/////////FADE SECTION
+
 	//FADE: delay outfade in time
 	UPROPERTY(EditAnywhere, Category = "RayTransparency Parameters")
 	float FadeInOutInterval = 0.05f;
@@ -84,6 +86,13 @@ public:
 	//FADE: Instance fade
 	UPROPERTY(EditDefaultsOnly, Category = "RayTransparency Parameters")
 	float immediatelyFade = 0.5f;
+
+	UFUNCTION(BlueprintCallable, Category = "RayTransparency Functions")
+	void SetFadeInOut(float InFadeInOutInterval);
+	UFUNCTION(BlueprintCallable, Category = "RayTransparency Functions")
+	void SetFadeRate(float InfadeRate);
+	UFUNCTION(BlueprintCallable, Category = "RayTransparency Functions")
+	void SetImmediatelyFade(float InImmediatelyFade);
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
