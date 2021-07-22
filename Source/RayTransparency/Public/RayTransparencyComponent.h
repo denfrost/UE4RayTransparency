@@ -93,6 +93,17 @@ public:
 	void SetFadeRate(float InfadeRate);
 	UFUNCTION(BlueprintCallable, Category = "RayTransparency Functions")
 	void SetImmediatelyFade(float InImmediatelyFade);
+
+	//Control Ray Sweep sizes
+	UFUNCTION(BlueprintCallable, Category = "RayTransparency Functions")
+	void SetSweepCapsule(float radius, float HalfHeight);
+
+	// Trace object size
+	UPROPERTY(EditAnywhere, Category = "RayTransparency Parameters")
+	float capsuleHalfHeight = 10.0f;//88.0f;
+	// Trace object size
+	UPROPERTY(EditAnywhere, Category = "RayTransparency Parameters")
+	float capsuleRadius = 10.0f; // 34.0f;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -146,13 +157,6 @@ protected:
 	// Check trace block by this
 	UPROPERTY(EditAnywhere, Category = "RayTransparency Parameters")
 	TArray<TEnumAsByte<ECollisionChannel>> objectTypes;
-
-	// Trace object size
-	UPROPERTY(EditAnywhere, Category = "RayTransparency Parameters")
-	float capsuleHalfHeight = 88.0f;
-	// Trace object size
-	UPROPERTY(EditAnywhere, Category = "RayTransparency Parameters")
-	float capsuleRadius = 34.0f;
 
 	// Fade near and close parameters
 	UPROPERTY(EditAnywhere, Category = "RayTransparency Parameters")
