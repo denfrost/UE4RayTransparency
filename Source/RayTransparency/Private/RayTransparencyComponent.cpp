@@ -13,6 +13,12 @@ URayTransparencyComponent::URayTransparencyComponent()
 	objectTypes.Add(ECC_WorldStatic);
 }
 
+void URayTransparencyComponent::SetSweepCapsule(float Radius, float HalfHeight)
+{
+	capsuleHalfHeight = HalfHeight;
+	capsuleRadius = Radius;
+}
+
 void URayTransparencyComponent::SetFadeInOut(float InFadeInOutInterval)
 {
 	FadeInOutInterval = InFadeInOutInterval;
