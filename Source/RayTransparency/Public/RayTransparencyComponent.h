@@ -100,7 +100,7 @@ public:
 
 	//Control Current Ignore Actors for Ray Transparency
 	UFUNCTION(BlueprintCallable, Category = "RayTransparency Functions")
-	void SetCurrentTagIngoreFromList(FName CurrentTagIgnore);
+	void SetCurrentTagActorsIgnore(FName CurrentTagIgnore);
 
 	// Trace object size
 	UPROPERTY(EditAnywhere, Category = "RayTransparency Parameters")
