@@ -170,6 +170,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RayTransparency Parameters")
 	FName TagActorsIgnore = FName(TEXT("TraceIgnoreActor"));
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RayTransparency Parameters")
+	TArray<FName> TagListIgnore;
 	///
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<FTransparentObjectStruct> fadeObjects;
