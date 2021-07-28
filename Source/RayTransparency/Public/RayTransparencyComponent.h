@@ -98,16 +98,19 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "RayTransparency Functions")
 	void SetSweepCapsule(float radius, float HalfHeight);
 
-	//Control Current Ignore Actors for Ray Transparency
-	UFUNCTION(BlueprintCallable, Category = "RayTransparency Functions")
-	void SetCurrentTagActorsIgnore(FName CurrentTagIgnore);
-
 	// Trace object size
 	UPROPERTY(EditAnywhere, Category = "RayTransparency Parameters")
 	float capsuleHalfHeight = 10.0f;//88.0f;
 	// Trace object size
 	UPROPERTY(EditAnywhere, Category = "RayTransparency Parameters")
 	float capsuleRadius = 10.0f; // 34.0f;
+
+	//Control Current Ignore Actors for Ray Transparency
+	UFUNCTION(BlueprintCallable, Category = "RayTransparency Functions")
+	void SetCurrentTagActorsIgnore(FName CurrentTagIgnore);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RayTransparency Parameters")
+	TArray<AActor*> actorsIgnore;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -168,9 +171,6 @@ protected:
 	// Fade near and close parameters
 	UPROPERTY(EditAnywhere, Category = "RayTransparency Parameters")
 	float farObjectFade = 0.1;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RayTransparency Parameters")
-	TArray<AActor*> actorsIgnore;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RayTransparency Parameters")
 	FName TagActorsIgnore = FName(TEXT("TraceIgnoreActor"));
