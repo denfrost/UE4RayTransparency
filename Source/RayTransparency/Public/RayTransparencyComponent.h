@@ -98,6 +98,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "RayTransparency Functions")
 	void SetSweepCapsule(float radius, float HalfHeight);
 
+	//Control Current Ignore Actors for Ray Transparency
+	UFUNCTION(BlueprintCallable, Category = "RayTransparency Functions")
+	void SetCurrentTagIngoreFromList(FName CurrentTagIgnore);
+
 	// Trace object size
 	UPROPERTY(EditAnywhere, Category = "RayTransparency Parameters")
 	float capsuleHalfHeight = 10.0f;//88.0f;
