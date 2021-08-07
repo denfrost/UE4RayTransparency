@@ -1,4 +1,4 @@
-﻿// Copyright 2021 Fly Dream Dev. All Rights Reserved. 
+// Copyright 2021 Fly Dream Dev. All Rights Reserved. 
 
 #pragma once
 
@@ -178,18 +178,18 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RayTransparency Parameters")
 	TArray<FName> TagListIgnore;
 	///
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "RayTransparency Parameters")
 	TArray<FTransparentObjectStruct> fadeObjects;
 
 	// Now ID
 	int32 fadeNowID;
 
 	// Primitive components temp variable
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "RayTransparency Parameters")
 	TArray<UPrimitiveComponent*> fadeObjectsTemp;
 
 	// Primitive components temp variable
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "RayTransparency Parameters")
 	TArray<UPrimitiveComponent*> fadeObjectsHit;
 	// Temp variable
 	float currentFade;
@@ -203,7 +203,7 @@ private:
 	
 
 	// All characters array (maybe you control ( > 1 ) characters)
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, Category = "RayTransparency Parameters")
 	TArray<AActor*> characterArray;
 
 };
