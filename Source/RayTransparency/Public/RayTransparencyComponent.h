@@ -104,13 +104,6 @@ public:
 	// Trace object size
 	UPROPERTY(EditAnywhere, Category = "RayTransparency Parameters")
 	float capsuleRadius = 10.0f; // 34.0f;
-
-	//Control Current Ignore Actors for Ray Transparency
-	UFUNCTION(BlueprintCallable, Category = "RayTransparency Functions")
-	void SetCurrentTagActorsIgnore(FName CurrentTagIgnore);
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RayTransparency Parameters")
-	TArray<AActor*> actorsIgnore;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -173,10 +166,10 @@ protected:
 	float farObjectFade = 0.1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RayTransparency Parameters")
-	FName TagActorsIgnore = FName(TEXT("TraceIgnoreActor"));
+	TArray<AActor*> actorsIgnore;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RayTransparency Parameters")
-	TArray<FName> TagListIgnore;
+	FName TagActorsIgnore = FName(TEXT("TraceIgnoreActor"));
 	///
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<FTransparentObjectStruct> fadeObjects;
