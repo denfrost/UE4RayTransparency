@@ -7,7 +7,7 @@
 	"Category": "Icar",
 	"CreatedBy": "Icar",
 	"CreatedByURL": "",
-	"EngineVersion": "4.26.0",
+	"EngineVersion": "5.0.0",
 	"CanContainContent": true,
 	"Installed": true,
 	"Modules": [

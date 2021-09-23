@@ -34,6 +34,11 @@ void URayTransparencyComponent::SetImmediatelyFade(float InImmediatelyFade)
 	immediatelyFade = InImmediatelyFade;
 }
 
+void URayTransparencyComponent::SetCurrentTagActorsIgnore(FName CurrentTagIgnore)
+{
+	UGameplayStatics::GetAllActorsWithTag(GetWorld(), CurrentTagIgnore, actorsIgnore);
+}
+
 void URayTransparencyComponent::BeginPlay()
 {
 	Super::BeginPlay();

@@ -1,4 +1,4 @@
-﻿// Copyright 2021 Fly Dream Dev. All Rights Reserved. 
+// Copyright 2021 Fly Dream Dev. All Rights Reserved. 
 
 #pragma once
 
@@ -104,6 +104,13 @@ public:
 	// Trace object size
 	UPROPERTY(EditAnywhere, Category = "RayTransparency Parameters")
 	float capsuleRadius = 10.0f; // 34.0f;
+
+	//Control Current Ignore Actors for Ray Transparency
+	UFUNCTION(BlueprintCallable, Category = "RayTransparency Functions")
+	void SetCurrentTagActorsIgnore(FName CurrentTagIgnore);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RayTransparency Parameters")
+	TArray<AActor*> actorsIgnore;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -166,23 +173,23 @@ protected:
 	float farObjectFade = 0.1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RayTransparency Parameters")
-	TArray<AActor*> actorsIgnore;
+	FName TagActorsIgnore = FName(TEXT("TraceIgnoreActor"));
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RayTransparency Parameters")
-	FName TagActorsIgnore = FName(TEXT("TraceIgnoreActor"));
+	TArray<FName> TagListIgnore;
 	///
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "RayTransparency Parameters")
 	TArray<FTransparentObjectStruct> fadeObjects;
 
 	// Now ID
 	int32 fadeNowID;
 
 	// Primitive components temp variable
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "RayTransparency Parameters")
 	TArray<UPrimitiveComponent*> fadeObjectsTemp;
 
 	// Primitive components temp variable
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "RayTransparency Parameters")
 	TArray<UPrimitiveComponent*> fadeObjectsHit;
 	// Temp variable
 	float currentFade;
@@ -196,7 +203,7 @@ private:
 	
 
 	// All characters array (maybe you control ( > 1 ) characters)
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, Category = "RayTransparency Parameters")
 	TArray<AActor*> characterArray;
 
 };
